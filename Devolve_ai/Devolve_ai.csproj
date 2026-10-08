@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- O sistema se chama "Cadê Meu?": namespace e executável usam esse nome -->
+    <RootNamespace>CadeMeu</RootNamespace>
+    <AssemblyName>CadeMeu</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- O script vai junto com o executável para criar o banco na primeira execução -->
+    <None Update="Database\CriarBanco.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
